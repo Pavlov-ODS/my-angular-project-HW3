@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-task-item',
   template: `
-    <div (click)="onTaskClicked()">
+    <div (click)="onTaskClicked()" >
       {{ task.title }}
     </div>
   `

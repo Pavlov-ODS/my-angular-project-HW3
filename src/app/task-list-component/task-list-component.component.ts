@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   template: `
     <ul>
       <li *ngFor="let task of tasks">
-        <app-task-item [task]="task" (taskClicked)="onTaskClicked"></app-task-item>
+        <app-task-item [task]="task" (taskClicked)="onTaskClicked($event)"></app-task-item>
       </li>
     </ul>
   `
