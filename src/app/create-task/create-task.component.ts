@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-create-task',
@@ -6,12 +6,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./create-task.component.css']
 })
 export class CreateTaskComponent {
-  @Input() tasks: { id: number, title: string }[] = [];
   @Output() outEnterName = new EventEmitter<string>();
-
+  @Output() outDeleteClosedTasks = new EventEmitter<void>();
 
   enterName(nameInput: HTMLInputElement) {
     this.outEnterName.emit(nameInput.value);
     nameInput.value = '';
+  }
+
+  deleteAllClosedTasks() {
+    this.outDeleteClosedTasks.emit();
   }
 }

@@ -2,21 +2,19 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-task-list',
-  templateUrl: `task-list-component.component.html`,
+  templateUrl: './task-list-component.component.html',
   styleUrls: ['./task-list-component.component.css']
 })
-export class TaskListComponent{
-  @Input() tasks: {
-closed: any; id: number, title: string 
-}[] = [];
+export class TaskListComponent {
+  @Input() tasks: { id: number, title: string, closed: boolean }[] = [];
   @Output() taskClicked: EventEmitter<{ id: number, title: string }> = new EventEmitter();
+  @Output() taskRemoved: EventEmitter<number> = new EventEmitter();
 
-  onTaskClicked(task: { id: number, title: string }) {
-    
-    this.taskClicked.emit(task);  
+  onCheckboxChange(event: any, task: { id: number, title: string, closed: boolean }) {
+    task.closed = event.target.checked;
   }
+
   removeTask(index: number) {
-    this.tasks.splice(index, 1);
+    this.taskRemoved.emit(index);
   }
 }
- 
