@@ -1,0 +1,6 @@
+<div class="container">
+  <app-create-task (outEnterName)="addName($event)"></app-create-task>
+  <h1>Список задач</h1>
+  <app-task-list [tasks]="tasks"(taskClicked)="onTaskClicked($event)"(taskRemoved)="removeTask($event)"
+  ></app-task-list>
+</div>

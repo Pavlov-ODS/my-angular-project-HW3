@@ -2,11 +2,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-task-item',
-  template: `
-    <div (click)="onTaskClicked()" >
-      {{ task.title }}
-    </div>
-  `
+  templateUrl: `task-item-component.component.html`,
+  
 })
 export class TaskItemComponent {
   @Input() task: { id: number, title: string } = { id: 0, title: '' };

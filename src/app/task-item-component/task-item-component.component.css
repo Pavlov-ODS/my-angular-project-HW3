@@ -1,0 +1,12 @@
+.task-item {
+  display: flex;
+  align-items: center;
+}
+
+.closed-task {
+  text-decoration: line-through;
+}
+
+.task-checkbox {
+  margin-left: 10px;
+}
