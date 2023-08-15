@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   tasks: { closed: boolean, id: number, title: string }[] = [
@@ -30,5 +29,8 @@ export class AppComponent {
   removeTask(index: number) {
     this.tasks.splice(index, 1);
   }
+  deleteClosedTasks() {
+  this.tasks = this.tasks.filter(task => !task.closed);
 }
 
+}

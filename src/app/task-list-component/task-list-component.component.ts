@@ -10,11 +10,11 @@ export class TaskListComponent {
   @Output() taskClicked: EventEmitter<{ id: number, title: string }> = new EventEmitter();
   @Output() taskRemoved: EventEmitter<number> = new EventEmitter();
 
-  onCheckboxChange(event: any, task: { id: number, title: string, closed: boolean }) {
-    task.closed = event.target.checked;
+  onTaskClicked(task: { id: number, title: string }) {
+    this.taskClicked.emit(task);
   }
 
-  removeTask(index: number) {
-    this.taskRemoved.emit(index);
+  removeTask(taskId: number) {
+    this.taskRemoved.emit(taskId);
   }
 }

@@ -1,3 +1,5 @@
 <div (click)="onTaskClicked()">
-  {{ task.title }}
+  <input type="checkbox" [checked]="task.closed" (change)="onCheckboxChange($event, task)">
+  <span [class.closed]="task.closed">{{ task.title }}</span>
+  <button (click)="removeTask(task.id)">Delete</button>
 </div>
